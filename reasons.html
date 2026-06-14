@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons I Love You ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fbc2eb, #a18cd1);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .counter {
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .2);
+        }
+
+        .counter h2 {
+            margin-bottom: 10px;
+        }
+
+        .days {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .2);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .next {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 28px;
+            background: white;
+            color: #ff4d88;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 22px;
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="title">💖 Reasons I Love You Madamji 💖</h1>
+
+        <div class="counter">
+            <h2>⏳ Days We've Been Together</h2>
+            <div class="days" id="days"></div>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>😊 Your Smile</h3>
+                <p>Your smile makes even my worst day beautiful.</p>
+            </div>
+
+            <div class="card">
+                <h3>❤️ Your Care</h3>
+                <p>You always care about me more than yourself.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌸 Your Kind Heart</h3>
+                <p>Your kindness makes you the most beautiful person.</p>
+            </div>
+
+            <div class="card">
+                <h3>🥰 Your Love</h3>
+                <p>You make me feel special every single day.</p>
+            </div>
+
+            <div class="card">
+                <h3>✨ Your Support</h3>
+                <p>You always stand beside me no matter what.</p>
+            </div>
+
+            <div class="card">
+                <h3>💞 Everything About You</h3>
+                <p>I love every little thing that makes you YOU.</p>
+            </div>
+
+        </div>
+
+        <a href="surprise.html" class="next">
+            Next Surprise 🎁
+        </a>
+
+    </div>
+
+    <script>
+
+        /* Relationship Date */
+
+        const startDate = new Date("2024-01-01");
+
+        /* Change Above Date */
+
+        const today = new Date();
+
+        const diffTime = today - startDate;
+
+        const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        document.getElementById("days").innerHTML =
+            days + " Days ❤️";
+
+
+        /* Floating Hearts */
+
+        function createHeart() {
+
+            let heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (Math.random() * 20 + 15) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }
+
+        setInterval(createHeart, 300);
+
+    </script>
+    <a href="surprise.html" class="next">
+        Next Surprise 🎁
+    </a>
+</body>
+
+</html>

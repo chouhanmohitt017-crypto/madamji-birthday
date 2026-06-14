@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Special Surprise 🎁</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fbc2eb, #a18cd1);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 30px;
+
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(15px);
+
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .gift {
+            font-size: 120px;
+            cursor: pointer;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .heartBtn {
+            font-size: 60px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .secret {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .2);
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 28px;
+            background: white;
+            color: #ff4d88;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        .heart {
+            position: absolute;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+        }
+
+        .petal {
+            position: absolute;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎁 Open Your Birthday Gift Madamji 🎁</h1>
+
+        <div class="gift" onclick="openGift()">
+            🎁
+        </div>
+
+        <div class="message" id="giftMessage">
+            💖 You Are The Best Gift In My Life 💖
+        </div>
+
+        <div class="heartBtn" onclick="heartClick()">
+            ❤️
+        </div>
+
+        <p style="color:white">
+            Click the heart 5 times ❤️
+        </p>
+
+        <div class="secret" id="secret">
+            🥹 Secret Message:<br><br>
+
+            No matter what happens,
+            I will always care for you,
+            respect you,
+            support you,
+            and love you endlessly. ❤️✨
+        </div>
+
+        <a href="letter.html" class="btn">
+            Final Love Letter 💌
+        </a>
+
+    </div>
+
+    <script>
+
+        function openGift() {
+            document.getElementById("giftMessage").style.display = "block";
+        }
+
+        let clicks = 0;
+
+        function heartClick() {
+
+            clicks++;
+
+            if (clicks >= 5) {
+
+                document.getElementById("secret").style.display = "block";
+
+            }
+
+        }
+
+        /* Floating Hearts */
+
+        function createHeart() {
+
+            let heart = document.createElement("div");
+
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (Math.random() * 20 + 15) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }
+
+        setInterval(createHeart, 300);
+
+
+        /* Rose Petals */
+
+        function createPetal() {
+
+            let petal = document.createElement("div");
+
+            petal.className = "petal";
+
+            petal.innerHTML = "🌹";
+
+            petal.style.left = Math.random() * 100 + "vw";
+
+            petal.style.fontSize =
+                (Math.random() * 15 + 15) + "px";
+
+            petal.style.animationDuration =
+                (Math.random() * 5 + 5) + "s";
+
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 9000);
+
+        }
+
+        setInterval(createPetal, 400);
+
+    </script>
+    <a href="letter.html" class="btn">
+        Final Love Letter 💌
+    </a>
+</body>
+
+</html>

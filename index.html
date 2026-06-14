@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Happy Birthday Madamji ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg,
+                    #ff9a9e,
+                    #fad0c4,
+                    #fbc2eb,
+                    #a18cd1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+        }
+
+        h1 {
+            color: white;
+            font-size: 32px;
+        }
+
+        .type {
+            color: white;
+            font-size: 20px;
+            margin-top: 15px;
+            height: 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: white;
+            color: #ff4d88;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d88;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="music" loop>
+        <source src="music.mp3">
+    </audio>
+
+    <div class="card">
+
+        <h1>🎂 Happy Birthday Madamji ❤️</h1>
+
+        <div class="type" id="text"></div>
+
+        <button onclick="playMusic()" class="btn">
+            🎵 Play Music
+        </button>
+
+        <br><br>
+
+        <a href="gallery.html" class="btn">
+            Next Surprise ➜
+        </a>
+
+    </div>
+
+    <script>
+
+        function playMusic() {
+            document.getElementById("music").play();
+        }
+
+        const msg =
+            "To my beautiful Madamji ❤️, today is your special day and I want to make every moment magical for you.";
+
+        let i = 0;
+
+        function typeWriter() {
+            if (i < msg.length) {
+                document.getElementById("text").innerHTML += msg.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        function hearts() {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                Math.random() * 20 + 20 + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(hearts, 300);
+
+    </script>
+    <a href="gallery.html" class="btn">
+        Next Surprise ➜
+    </a>
+
+</body>
+
+</html>
